@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "gpio",
-    "description": "api documentation for [gpio (v0.2.7)](https://github.com/EnotionZ/GpiO) [![npm package](https://img.shields.io/npm/v/npmdoc-gpio.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gpio) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gpio.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gpio)",
+    "description": "#### api documentation for  [gpio (v0.2.7)](https://github.com/EnotionZ/GpiO)  [![npm package](https://img.shields.io/npm/v/npmdoc-gpio.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gpio) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gpio.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gpio)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "gpio": "*",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
