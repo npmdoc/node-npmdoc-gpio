@@ -85,6 +85,40 @@
 
         </li>
 
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>gpio</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gpio.gpio">module gpio.gpio</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">gpio.gpio.</span>logging</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gpio.gpio.export">
+            function <span class="apidocSignatureSpan">gpio.gpio.</span>export
+            <span class="apidocSignatureSpan">(headerNum, direction)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gpio.gpio.unexport">
+            function <span class="apidocSignatureSpan">gpio.gpio.</span>unexport
+            <span class="apidocSignatureSpan">(number, fn)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
@@ -127,6 +161,78 @@ interval: 200,
     <h2>
         <a href="#apidoc.element.gpio.unexport" id="apidoc.element.gpio.unexport">
         function <span class="apidocSignatureSpan">gpio.</span>unexport
+        <span class="apidocSignatureSpan">(number, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unexport = function (number, fn) {
+	_write(number, gpiopath + &#x27;unexport&#x27;, function(err) {
+		if(err) return logError(err);
+		if(typeof fn === &#x27;function&#x27;) fn();
+	}, 1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+gpio4.set(0, function() {
+   console.log(gpio4.value);    // should log 0
+});
+```
+```js
+// unexport program when done
+gpio4.<span class="apidocCodeKeywordSpan">unexport</span>();
+```
+
+##### EventEmitter
+This library uses node&#x27;s [EventEmitter](http://nodejs.org/api/events.html) which allows you to watch
+for value changes and fire a callback.
+```js
+// bind to the &#x22;change&#x22; event
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gpio.gpio" id="apidoc.module.gpio.gpio">module gpio.gpio</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.gpio.gpio.export" id="apidoc.element.gpio.gpio.export">
+        function <span class="apidocSignatureSpan">gpio.gpio.</span>export
+        <span class="apidocSignatureSpan">(headerNum, direction)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">export = function (headerNum, direction) { return new GPIO(headerNum, direction); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+##### Standard setup
+
+```js
+var gpio = require(&#x22;gpio&#x22;);
+
+// Calling export with a pin number will export that header and return a gpio header instance
+var gpio4 = gpio.<span class="apidocCodeKeywordSpan">export</span>(4, {
+// When you export a pin, the default direction is out. This allows you to set
+// the pin value to either LOW or HIGH (3.3V) from your program.
+direction: &#x27;out&#x27;,
+
+// set the time interval (ms) between each read when watching for value changes
+// note: this is default to 100, setting value too low will cause high CPU usage
+interval: 200,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gpio.gpio.unexport" id="apidoc.element.gpio.gpio.unexport">
+        function <span class="apidocSignatureSpan">gpio.gpio.</span>unexport
         <span class="apidocSignatureSpan">(number, fn)</span>
         </a>
     </h2>
